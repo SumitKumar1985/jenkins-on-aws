@@ -1,0 +1,4 @@
+path: templates
+templates:
+  - jenkins-instance-profile
+  - jenkins
