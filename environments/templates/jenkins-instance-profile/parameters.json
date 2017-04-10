@@ -1,6 +1,6 @@
 [
   {
     "ParameterKey": "ManagedPolicyArnsList",
-    "ParameterValue": " arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+    "ParameterValue": "arn:aws:iam::aws:policy/AmazonEC2FullAccess,arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
   }
 ]

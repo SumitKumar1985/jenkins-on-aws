@@ -2,7 +2,7 @@
   "name": "jenkins-instance-profile",
   "hasParameters": true,
   "region": "ap-south-1",
-  "action": "create",
+  "action": "update",
   "capabilities": [
     "CAPABILITY_IAM"
   ]
