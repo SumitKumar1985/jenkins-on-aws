@@ -46,14 +46,16 @@
                 "Ref": "jenkinsSubnetId"
               },
               "UserData": {
-                "Fn::Join": [
-                  "\n",
-                  [
-                    "#!/usr/bin/env bash",
-                    "yum update -y",
-                    "yum install -y git",
+                "Fn::Base64": {
+                  "Fn::Join": [
+                    "\n",
+                    [
+                      "#!/usr/bin/env bash",
+                      "yum update -y",
+                      "yum install -y git",
+                    ]
                   ]
-                ]
+                }
               },
               "WeightedCapacity": "8"
             }
