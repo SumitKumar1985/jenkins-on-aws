@@ -1,0 +1,11 @@
+- Provision an instance profile for Jenkins
+- Provision Jenkins (and capture Jenkins logs)
+  - Configure Jenkins
+  - Configure plugins
+  - Configure security
+  - Configure tools
+  - Configure credentials
+
+- Create a build job
+- Provision worker nodes using spot instances
+  - Setup executors on worker nodes
