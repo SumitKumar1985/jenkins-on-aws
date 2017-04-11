@@ -2,5 +2,5 @@
   "name": "jenkins-worker-fleet",
   "hasParameters": true,
   "region": "ap-south-1",
-  "action": "recreate"
+  "action": "update"
 }
