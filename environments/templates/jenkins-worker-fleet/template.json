@@ -1,0 +1,73 @@
+{
+  "Parameters": {
+    "TargetCapacity": {
+      "Description": "Desired target capacity of spot fleet",
+      "Type": "Number",
+      "Default": "8"
+    },
+    "jenkinsSecurityGroupId": {
+      "Description": "Security group for Jenkins nodes",
+      "Type": "AWS::EC2::SecurityGroup::Id"
+    },
+    "jenkinsSubnetId": {
+      "Description": "VPC subnet that Jenkins nodes resides in",
+      "Type": "AWS::EC2::Subnet::Id"
+    },
+    "myIamFleetRole": {
+      "Description": "IAM Role required to create spot fleet requests",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "SpotFleet": {
+      "Type": "AWS::EC2::SpotFleet",
+      "Properties": {
+        "SpotFleetRequestConfigData": {
+          "IamFleetRole": {
+            "Ref": "myIamFleetRole"
+          },
+          "SpotPrice": "100",
+          "TargetCapacity": {
+            "Ref": "TargetCapacity"
+          },
+          "LaunchSpecifications": [
+            {
+              "InstanceType": "r4.large",
+              "KeyName": "jenkins",
+              "ImageId": "ami-34b4c05b",
+              "SecurityGroups": [
+                {
+                  "GroupId": {
+                    "Ref": "jenkinsSecurityGroupId"
+                  }
+                }
+              ],
+              "SubnetId": {
+                "Ref": "jenkinsSubnetId"
+              },
+              "UserData": {
+                "Fn::Join": [
+                  "\n",
+                  [
+                    "#!/usr/bin/env bash",
+                    "yum update -y",
+                    "yum install -y git",
+                  ]
+                ]
+              },
+              "WeightedCapacity": "8"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "SpotFleetRequest": {
+      "Value": {
+        "Ref": "SpotFleet"
+      }
+    }
+  }
+}
+

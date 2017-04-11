@@ -1,0 +1,18 @@
+[
+  {
+    "ParameterKey": "jenkinsSecurityGroupId",
+    "ParameterValue": "REPLACE-ME-jenkinsSecurityGroupId"
+  },
+  {
+    "ParameterKey": "myIamFleetRole",
+    "ParameterValue": "REPLACE-ME-myIamFleetRole"
+  },
+  {
+    "ParameterKey": "jenkinsSubnetId",
+    "ParameterValue": "REPLACE-ME-jenkinsSubnetId"
+  },
+  {
+    "ParameterKey": "TargetCapacity",
+    "ParameterValue": "8"
+  }
+]

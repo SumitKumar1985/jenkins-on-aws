@@ -2,3 +2,4 @@ path: templates
 templates:
   - jenkins-instance-profile
   - jenkins
+  - jenkins-worker-fleet
